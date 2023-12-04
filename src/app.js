@@ -1,18 +1,22 @@
 import { ActivityType, Client, Collection } from "discord.js";
-import { readdirSync } from "fs"; // file system
+import { readdirSync } from "fs";
+
 import "dotenv/config";
+
 const client = new Client({
   intents: ["Guilds"],
   presence: {
     status: "idle",
-    // Ne yaptığını gösterir
+
     activities: [{ name: "Breaking Bad", type: ActivityType.Watching }],
   },
 });
-// "DIRECT_MESSAGES", , "GUILD_MEMBERS", "GUILD_MESSAGES" , "GuildPresences"
+client.on("ready", () => {
+  console.log("Yaşıyor");
+});
 
-readdirSync("./src/events").forEach((file) => {
-  const event = import(`./src/events/${file}`);
+readdirSync("./events").forEach(async (file) => {
+  const event = await import(`./events/${file}`).then((m) => m.default);
   console.log(event);
 });
 
