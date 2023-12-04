@@ -1,6 +1,6 @@
 import { ActivityType, Client, Collection } from "discord.js";
+import { readdirSync } from "fs"; // file system
 import "dotenv/config";
-
 const client = new Client({
   intents: ["Guilds"],
   presence: {
@@ -10,29 +10,11 @@ const client = new Client({
   },
 });
 // "DIRECT_MESSAGES", , "GUILD_MEMBERS", "GUILD_MESSAGES" , "GuildPresences"
-client.on("ready", () => {
-  console.log("Test bot hazır!!!");
-  const collection = new Collection();
-  collection.set("a", 1);
-  collection.set("b", 2);
 
-  console.log(collection);
-
-  // client.user.setStatus("idle");
-
-  // const arr = [
-  //   "Better Call Saul",
-  //   "One Piece ",
-  //   "Breaking Bad ",
-  //   "Hunter X Hunter",
-  // ];
-
-  // setInterval(() => {
-  //   const random = Math.floor(Math.random() * arr.length);
-  //   client.user.setPresence({
-  //     activities: [{ name: arr[random], type: ActivityType.Watching }],
-  //   });
-  // }, 10000);
+readdirSync("./src/events").forEach((file) => {
+  const event = import(`./src/events/${file}`);
+  console.log(event);
 });
+
 // Env dosyasından Tokeni alıp giriş işlemini yapar
 client.login(process.env.TOKEN);
