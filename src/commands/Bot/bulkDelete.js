@@ -3,9 +3,8 @@ export default {
   name: "delete",
   async execute(message) {
     if (message.channel.type == ChannelType.DM) return;
-    const amount = message.content.slice(1).trim().split(/ +/)[1];
+    const messages = parseInt(message.content.slice(1).trim().split(/ +/)[1]);
 
-    const messages = parseInt(amount);
     await message.channel.bulkDelete(messages);
     const { embed } = message.client;
     message.channel
