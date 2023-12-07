@@ -12,10 +12,22 @@ export default (client) => {
 
     const command = client.commands.get(commandName);
     if (!command) return;
+    console.log(message);
 
-    // Cooldown control
-    const cooldown = cooldown_control();
-    if (cooldown) return console.log("cooldown var!!");
+    // Cooldown Control
+    const cooldown = cooldown_control(command, message.member.id);
+    if (cooldown)
+      return message.reply(
+        `Bu komutu tekrar kullanmak için \`${cooldown}\` saniye beklemen gerekiyor `
+      );
+    // Permission Control
+    if (
+      command.permissions &&
+      !message.member.permissions.has(command.permissions)
+    )
+      return message.reply(
+        `Bu komutu kullanmak için \`${command.permissions}\` Yetkisi gerekiyor`
+      );
 
     try {
       command.execute(message);
