@@ -12,14 +12,17 @@ export default (client) => {
 
     const command = client.commands.get(commandName);
     if (!command) return;
-    console.log(message);
 
     // Cooldown Control
     const cooldown = cooldown_control(command, message.member.id);
     if (cooldown)
-      return message.reply(
-        `Bu komutu tekrar kullanmak için \`${cooldown}\` saniye beklemen gerekiyor `
-      );
+      return message.reply({
+        embeds: [
+          client.embed(
+            `Bu komutu tekrar kullanmak için \`${cooldown}\` saniye beklemen gerekiyor `
+          ),
+        ],
+      });
     // Permission Control
     if (
       command.permissions &&
