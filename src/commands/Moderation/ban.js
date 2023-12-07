@@ -3,6 +3,7 @@ export default {
   permissions: "BanMembers",
   cooldown: 10,
   execute(message) {
-    message.reply("Kullanıcı yasaklandı!!!");
+    const { embed } = message.client;
+    message.reply({ embeds: [embed("Kullanıcı banlandı!!")] });
   },
 };
