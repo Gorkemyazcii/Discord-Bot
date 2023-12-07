@@ -12,8 +12,5 @@ export default {
         embeds: [embed(`\`${messages}\` tane mesaj silindi`)],
       })
       .then((msg) => setTimeout(() => msg.delete(), 5000));
-    // setTimeout(() => {
-    //   msg.delete(del);
-    // }, 5000);
   },
 };
