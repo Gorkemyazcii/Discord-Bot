@@ -4,7 +4,7 @@ import { readdirSync } from "fs";
 import "dotenv/config";
 
 const client = new Client({
-  intents: ["Guilds", "GuildMessages", "MessageContent"],
+  intents: ["Guilds", "GuildMessages", "MessageContent", "GuildBans"],
   presence: {
     status: "idle",
 
