@@ -1,12 +1,14 @@
 import { EmbedBuilder } from "discord.js";
+import { SlashCommandBuilder } from "@discordjs/builders";
 
-export default {
+export const data = {
   name: "ping",
-  execute(message) {
-    const { emoji, ws } = message.client;
+  description: "Botun ve Discord'un gecikmesini Gönderir",
+  execute(interaction) {
+    const { emoji, ws } = interaction.client;
 
     const dicord_ping = ws.ping;
-    const bot_ping = Date.now() - message.createdTimestamp;
+    const bot_ping = Date.now() - interaction.createdTimestamp;
 
     const response = new EmbedBuilder().setColor("Random").addFields(
       {
@@ -21,6 +23,10 @@ export default {
         inline: true,
       }
     );
-    message.reply({ embeds: [response] });
+    interaction.reply({ embeds: [response], ephemeral: true });
   },
 };
+
+export const slash_data = new SlashCommandBuilder()
+  .setName(data.name)
+  .setDescription(data.description);
