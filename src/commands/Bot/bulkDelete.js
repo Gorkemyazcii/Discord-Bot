@@ -1,6 +1,9 @@
 import { ChannelType } from "discord.js";
-export default {
+import { EmbedBuilder } from "discord.js";
+import { SlashCommandBuilder } from "@discordjs/builders";
+export const data = {
   name: "delete",
+  description: "Toplu silme işlemi yapar",
   async execute(message) {
     if (message.channel.type == ChannelType.DM) return;
     const messages = parseInt(message.content.slice(1).trim().split(/ +/)[1]);
@@ -14,3 +17,7 @@ export default {
       .then((msg) => setTimeout(() => msg.delete(), 5000));
   },
 };
+
+export const slash_data = new SlashCommandBuilder()
+  .setName(data.name)
+  .setDescription(data.description);
