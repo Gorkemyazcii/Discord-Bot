@@ -36,10 +36,9 @@ readdirSync("./events").forEach(async (file) => {
 // Command Loader
 readdirSync("./commands").forEach((category) => {
   readdirSync(`./commands/${category}`).forEach(async (file) => {
-    const command = await import(`./commands/${category}/${file}`).then(
-      (c) => c.default
-    ); // c --> command
-    client.commands.set(command.name, command);
+    const command = await import(`./commands/${category}/${file}`);
+
+    client.commands.set(command.data.name, command);
   });
 });
 
