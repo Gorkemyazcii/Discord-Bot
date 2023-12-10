@@ -6,7 +6,7 @@ export default (client, type = "global") => {
       console.log("Global komutlar kaydedildi");
     });
   } else if (type == "guild") {
-    const guild = client.guilds.cache.get("1179127485057740883");
+    const guild = client.guilds.cache.get(process.env.GUILD_ID);
     guild.commands.set(commands).then(() => {
       console.log("Guild komutlar kaydedildi");
     });
