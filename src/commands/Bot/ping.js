@@ -4,6 +4,7 @@ import { SlashCommandBuilder } from "@discordjs/builders";
 export const data = {
   name: "ping",
   description: "Botun ve Discord'un gecikmesini Gönderir",
+
   execute(interaction) {
     const { emoji, ws } = interaction.client;
 
@@ -27,6 +28,11 @@ export const data = {
   },
 };
 
-export const slash_data = new SlashCommandBuilder()
-  .setName(data.name)
-  .setDescription(data.description);
+export const slash_data = {
+  name: data.name,
+  description: data.description,
+};
+
+// export const slash_data = new SlashCommandBuilder()
+//   .setName(data.name)
+//   .setDescription(data.description);

@@ -11,7 +11,10 @@ export const data = {
     interaction.reply({ embeds: [embed("Kullanıcı banlandı!!")] });
   },
 };
-
-export const slash_data = new SlashCommandBuilder()
-  .setName(data.name)
-  .setDescription(data.description);
+export const slash_data = {
+  name: data.name,
+  description: data.description,
+};
+// export const slash_data = new SlashCommandBuilder()
+//   .setName(data.name)
+//   .setDescription(data.description);
