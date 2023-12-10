@@ -1,9 +1,11 @@
 import cooldown_control from "../utils/cooldown_control.js";
+import auto_complete from "../utils/event-utils/auto_complete.js";
 
 export default (client) => {
   const { embed } = client;
   client.on("interactionCreate", (interaction) => {
-    if (!interaction.isCommand()) return;
+    if (interaction.isAutocomplete()) auto_complete(interaction);
+    if (!interaction.isUserContextMenuCommand()) return;
 
     const command = client.commands.get(interaction.commandName);
     if (!command) return;
