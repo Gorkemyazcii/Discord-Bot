@@ -14,6 +14,7 @@ export const data = {
 export const slash_data = {
   name: data.name,
   description: data.description,
+  default_member_permissions: 2,
 };
 // export const slash_data = new SlashCommandBuilder()
 //   .setName(data.name)
