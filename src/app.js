@@ -1,4 +1,9 @@
-import { ActivityType, Client, Collection } from "discord.js";
+import {
+  ActivityType,
+  Client,
+  Collection,
+  InteractionCollector,
+} from "discord.js";
 import { readdirSync } from "fs";
 
 import "dotenv/config";
@@ -41,6 +46,5 @@ readdirSync("./commands").forEach((category) => {
     client.commands.set(command.data.name, command);
   });
 });
-
 // Env dosyasından Tokeni alıp giriş işlemini yapar
 client.login(process.env.TOKEN);
