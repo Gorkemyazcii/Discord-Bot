@@ -1,11 +1,11 @@
 import cooldown_control from "../utils/cooldown_control.js";
 import auto_complete from "../utils/event-utils/auto_complete.js";
+import { Events } from "discord.js";
 
 export default (client) => {
   const { embed } = client;
-  client.on("interactionCreate", (interaction) => {
+  client.on(Events.InteractionCreate, (interaction) => {
     if (interaction.isAutocomplete()) auto_complete(interaction);
-    if (!interaction.isUserContextMenuCommand()) return;
 
     const command = client.commands.get(interaction.commandName);
     if (!command) return;
