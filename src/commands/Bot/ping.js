@@ -1,5 +1,4 @@
 import { EmbedBuilder } from "discord.js";
-import { SlashCommandBuilder } from "@discordjs/builders";
 
 export const data = {
   name: "ping",
@@ -7,6 +6,7 @@ export const data = {
 
   execute(interaction) {
     const { emoji, ws } = interaction.client;
+    console.log(interaction);
 
     const dicord_ping = ws.ping;
     const bot_ping = Date.now() - interaction.createdTimestamp;
