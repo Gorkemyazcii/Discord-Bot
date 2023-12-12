@@ -1,6 +1,4 @@
 import { EmbedBuilder } from "discord.js";
-import { ContextMenuCommandBuilder } from "@discordjs/builders";
-
 export const data = {
   name: "bilgi",
   execute(interaction) {
