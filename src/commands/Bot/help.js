@@ -1,4 +1,3 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
 import { EmbedBuilder } from "discord.js";
 export const data = {
   name: "help",
