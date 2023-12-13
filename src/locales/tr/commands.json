@@ -1,6 +1,27 @@
 {
   "ping": {
+    "name": "ping",
+    "description": "Discord'un ve botun gecikmesini gönderir.",
     "discord_latency": "discord gecikmesi",
     "bot_latency": "bot gecikmesi"
+  },
+  "avatar": {
+    "name": "avatar",
+    "description": "Belirtilen kullanıcının avatarını döndürür.",
+    "user_option": {
+      "name": "kullanıcı",
+      "description": "Lütfen bir kullanıcı girin"
+    }
+  },
+  "info": {
+    "name": "bilgi"
+  },
+  "delete": {
+    "name": "sil",
+    "description": "Belirten sayıda mesajı siler.",
+    "number_option": {
+      "name": "sayı",
+      "description": "silmek istediğiniz mesaj sayısını giriniz"
+    }
   }
 }
