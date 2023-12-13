@@ -1,0 +1,4 @@
+{
+  "cooldown_error": "To use this command again, you must wait `{{cooldown}}` seconds",
+  "missing_permissions": "To use this command, you need to have `{{command.data.permission}}` Privilege"
+}
