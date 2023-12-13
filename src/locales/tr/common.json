@@ -1,0 +1,4 @@
+{
+  "cooldown_error": "Bu komutu tekrar kullanmak için `{{cooldown}}` saniye beklemelisiniz",
+  "mising_permissions": "Bu komutu kullanmak için `{{command.data.permission}}` Yetkisine sahip olman gerekiyor"
+}

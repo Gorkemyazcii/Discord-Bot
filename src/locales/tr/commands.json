@@ -1,0 +1,6 @@
+{
+  "ping": {
+    "discord_latency": "discord gecikmesi",
+    "bot_latency": "bot gecikmesi"
+  }
+}
