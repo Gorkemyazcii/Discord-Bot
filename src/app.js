@@ -1,10 +1,7 @@
-import {
-  ActivityType,
-  Client,
-  Collection,
-  InteractionCollector,
-} from "discord.js";
+import { ActivityType, Client, Collection } from "discord.js";
 import { readdirSync } from "fs";
+import i18next from "i18next";
+import tranlationBackend from "i18next-fs-backend";
 
 import "dotenv/config";
 
@@ -32,6 +29,14 @@ client.emoji = (emojiName) =>
 //  Assignments Embed
 client.embed = await import("./utils/bot/embed.js").then((m) => m.default);
 
+// Initialize multi language system
+await i18next.use(tranlationBackend).init({
+  ns: readdirSync("./locales/en-US").map((a) => a.replace(".json", "")),
+  defaultNS: "commands",
+  fallbackLng: "en-US",
+  preload: readdirSync("./locales"),
+  backend: { loadPath: "./locales/{{lng}}/{{ns}}.json" },
+});
 // Event Loader
 readdirSync("./events").forEach(async (file) => {
   const event = await import(`./events/${file}`).then((m) => m.default); // m --> Module
