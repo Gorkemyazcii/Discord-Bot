@@ -1,6 +1,27 @@
 {
   "ping": {
+    "name": "ping",
+    "description": "Sends latency of Discord and bot",
     "discord_latency": "discord latency",
     "bot_latency": "bot latency"
+  },
+  "avatar": {
+    "name": "avatar",
+    "description": "Sends avatar of the specified user",
+    "user_option": {
+      "name": "user",
+      "description": "Please specify a user."
+    }
+  },
+  "info": {
+    "name": "info"
+  },
+  "delete": {
+    "name": "delete",
+    "description": "Deletes messages sent to a channel",
+    "number_option": {
+      "name": "number",
+      "description": "enter the amount of numbers you will delete"
+    }
   }
 }
