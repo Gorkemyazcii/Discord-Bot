@@ -2,7 +2,8 @@ import { ActivityType, Client, Collection } from "discord.js";
 import { readdirSync } from "fs";
 import i18next from "i18next";
 import tranlationBackend from "i18next-fs-backend";
-
+import DisTube from "distube";
+import SpotifyPlugin from "@distube/spotify";
 import "dotenv/config";
 
 const client = new Client({
@@ -12,6 +13,7 @@ const client = new Client({
     "MessageContent",
     "GuildBans",
     "GuildMembers",
+    "GuildVoiceStates",
   ],
   presence: {
     status: "idle",
@@ -31,25 +33,26 @@ client.embed = await import("./utils/bot/embed.js").then((m) => m.default);
 
 // Initialize multi language system
 await i18next.use(tranlationBackend).init({
-  ns: readdirSync("./locales/en-US").map((a) => a.replace(".json", "")),
+  ns: readdirSync("./src/locales/en-US").map((a) => a.replace(".json", "")),
   defaultNS: "commands",
   fallbackLng: "en-US",
-  preload: readdirSync("./locales"),
-  backend: { loadPath: "./locales/{{lng}}/{{ns}}.json" },
+  preload: readdirSync("./src/locales"),
+  backend: { loadPath: "./src/locales/{{lng}}/{{ns}}.json" },
 });
 // Event Loader
-readdirSync("./events").forEach(async (file) => {
-  const event = await import(`./events/${file}`).then((m) => m.default); // m --> Module
+readdirSync("./src/events").forEach(async (file) => {
+  const event = await import(`../src/events/${file}`).then((m) => m.default); // m --> Module
   event(client);
 });
 
 // Command Loader
-readdirSync("./commands").forEach((category) => {
-  readdirSync(`./commands/${category}`).forEach(async (file) => {
-    const command = await import(`./commands/${category}/${file}`);
+readdirSync("./src/commands").forEach((category) => {
+  readdirSync(`./src/commands/${category}`).forEach(async (file) => {
+    const command = await import(`../src/commands/${category}/${file}`);
 
     client.commands.set(command.data.name, command);
   });
 });
+export default client;
 // Env dosyasından Tokeni alıp giriş işlemini yapar
 client.login(process.env.TOKEN);
