@@ -1,8 +1,9 @@
 import { EmbedBuilder } from "discord.js";
+import { t } from "i18next";
 
 export const data = {
-  name: "avatar",
-  description: "Kullanıcının avatarını döndürür",
+  name: t("avatar.name"),
+  description: t("avatar.description"),
   execute(interaction) {
     const target =
       interaction.options._hoistedOptions?.[0]?.member || interaction.member;
@@ -22,10 +23,22 @@ export const data = {
 export const slash_data = {
   name: data.name,
   description: data.description,
+  name_localizations: {
+    tr: t("avatar.name", { lng: "tr" }),
+  },
+  description_localizations: {
+    tr: t("avatar.description", { lng: "tr" }),
+  },
   options: [
     {
-      name: "kullanıcı",
-      description: "Kullanıcı adını giriniz",
+      name: t("avatar.user_option.name"),
+      description: t("avatar.user_option.description"),
+      name_localizations: {
+        tr: t("avatar.user_option.name", { lng: "tr" }),
+      },
+      description_localizations: {
+        tr: t("avatar.user_option.description", { lng: "tr" }),
+      },
       type: 6,
       required: true,
     },
