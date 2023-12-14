@@ -1,6 +1,5 @@
 export default (interaction) => {
   if (interaction.commandName == "help") {
-    console.log(interaction);
     const focusedValue = interaction.options.getFocused();
     const choices = Array.from(interaction.client.commands.keys());
     const filtered = choices.filter((choice) =>
