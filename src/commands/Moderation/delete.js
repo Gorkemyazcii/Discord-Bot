@@ -1,13 +1,12 @@
+import { t } from "i18next";
 export const data = {
-  name: "sil",
-  description: "Girilen sayıda mesajları siler",
-
+  name: t("delete.name"),
+  description: t("delete.description"),
   execute(interaction) {
     const { channel, guild } = interaction;
     const { embed } = interaction.client;
 
     const deleteNumber = interaction.options.getInteger("sayı");
-    console.log(deleteNumber);
     channel.bulkDelete(deleteNumber).then((messages) => {
       return interaction
         .reply({
@@ -20,10 +19,23 @@ export const data = {
 export const slash_data = {
   name: data.name,
   description: data.description,
+  name_localizations: {
+    tr: t("delete.name", { lng: "tr" }),
+  },
+  description_localizations: {
+    tr: t("delete.description", { lng: "tr" }),
+  },
+  // default_member_permissions: 8,
   options: [
     {
-      name: "sayı",
-      description: "Sileceğiniz sayı miktarını giriniz",
+      name: t("delete.number_option.name"),
+      description: t("delete.number_option.description"),
+      name_localizations: {
+        tr: t("delete.number_option.name", { lng: "tr" }),
+      },
+      description_localizations: {
+        tr: t("delete.number_option.description", { lng: "tr" }),
+      },
       type: 4,
       required: true,
       min_value: 1,
