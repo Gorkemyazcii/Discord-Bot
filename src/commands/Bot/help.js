@@ -1,7 +1,8 @@
 import { EmbedBuilder } from "discord.js";
+import { t } from "i18next";
 export const data = {
-  name: "help",
-  description: "Yardım mesajı gönderir",
+  name: t("help.name"),
+  description: t("help.description"),
   execute(interaction) {
     const { embed, commands } = interaction.client;
 
@@ -32,11 +33,24 @@ export const data = {
 export const slash_data = {
   name: data.name,
   description: data.description,
+  name_localizations: {
+    tr: t("help.name", { lng: "tr" }),
+  },
+  description_localizations: {
+    tr: t("help.description", { lng: "tr" }),
+  },
   options: [
     {
-      name: "komut_adı",
-      description: "Lütfen Bilgi almak istediğiniz komutun adını giriniz",
+      name: t("help.help_option.name"),
+      description: t("help.help_option.description"),
+      name_localizations: {
+        tr: t("help.help_option.name", { lng: "tr" }),
+      },
+      description_localizations: {
+        tr: t("help.help_option.description", { lng: "tr" }),
+      },
       type: 3,
+      autocomplete: true,
     },
   ],
 };
