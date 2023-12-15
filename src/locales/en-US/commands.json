@@ -22,6 +22,24 @@
     "number_option": {
       "name": "number",
       "description": "enter the amount of numbers you will delete"
+    },
+    "messages_deleted": "{{number}} messages deleted"
+  },
+  "play": {
+    "name": "play",
+    "description": "Plays audio from YouTube or SoundCloud.",
+    "message": "music is playing",
+    "url_option": {
+      "name": "url",
+      "description": "please enter url"
+    }
+  },
+  "help": {
+    "name": "help",
+    "description": "writes what the commands do",
+    "help_option": {
+      "name": "command_name",
+      "description": "helper_command"
     }
   }
 }
