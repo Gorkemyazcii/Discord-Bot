@@ -22,6 +22,24 @@
     "number_option": {
       "name": "sayı",
       "description": "silmek istediğiniz mesaj sayısını giriniz"
+    },
+    "messages_deleted": "{{number}} adet mesaj silindi"
+  },
+  "play": {
+    "name": "oynat",
+    "description": "YouTube veya SoundCloud'dan ses oynatır.",
+    "message": "Müzik çalınıyor",
+    "url_option": {
+      "name": "url",
+      "description": "lütfen url giriniz"
+    }
+  },
+  "help": {
+    "name": "yardım",
+    "description": "komutların ne işe yaradığını yazar",
+    "help_option": {
+      "name": "komut_ismi",
+      "description": "yardımcı_komutu"
     }
   }
 }
