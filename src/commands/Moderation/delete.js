@@ -6,11 +6,19 @@ export const data = {
     const { channel, guild } = interaction;
     const { embed } = interaction.client;
 
-    const deleteNumber = interaction.options.getInteger("sayı");
+    const deleteNumber = interaction.options.getInteger("number");
     channel.bulkDelete(deleteNumber).then((messages) => {
       return interaction
         .reply({
-          embeds: [embed(`${messages.size} Adet Mesaj Silindi`)],
+          embeds: [
+            embed(
+              t("delete.messages_deleted", {
+                lng: interaction.locale,
+                ns: "commands",
+                number: messages.size,
+              })
+            ),
+          ],
         })
         .then((msg) => setTimeout(() => msg.delete(), 5000));
     });
