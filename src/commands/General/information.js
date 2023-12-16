@@ -1,6 +1,7 @@
 import { EmbedBuilder } from "discord.js";
+import { t } from "i18next";
 export const data = {
-  name: "bilgi",
+  name: t("info.name"),
   execute(interaction) {
     const target = interaction.targetMember;
     const response = new EmbedBuilder()
@@ -16,7 +17,11 @@ export const data = {
 
 export const slash_data = {
   name: data.name,
+  name_localizations: {
+    tr: t("info.name", { lng: "tr" }),
+  },
   type: 2,
+  dm_permission: false,
 };
 
 // export const slash_data = new ContextMenuCommandBuilder()
