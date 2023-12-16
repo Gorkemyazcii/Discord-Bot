@@ -23,6 +23,7 @@
     "dotenv": "^16.3.1",
     "i18next": "^23.7.9",
     "i18next-fs-backend": "^2.3.1",
+    "mongoose": "^8.0.3",
     "opus": "^0.0.0",
     "opusscript": "^0.0.8",
     "python": "^0.0.4",
