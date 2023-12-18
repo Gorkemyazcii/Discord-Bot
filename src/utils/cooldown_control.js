@@ -4,13 +4,20 @@ const cooldowns = new Collection();
 export default (command, user_id) => {
   if (user_id == process.env.USER_ID) return false;
 
+  //const memberPermissions = interaction.member.permissions.serialize();
+  // console.log(memberPermissions);
+  // const hasTruePermission =
+  //   memberPermissions.hasOwnProperty("Administrator") &&
+  //   memberPermissions["Administrator"] === true;
+
+  // if (hasTruePermission) return false;
   if (!cooldowns.has(command.name)) {
     cooldowns.set(command.name, new Collection());
   }
 
   const now = Date.now();
   const timestamps = cooldowns.get(command.name);
-  const cooldownAmount = (command.cooldown || 5) * 1000;
+  const cooldownAmount = (command.data.cooldown || 5) * 1000;
 
   if (timestamps.has(user_id)) {
     const expiration = timestamps.get(user_id) + cooldownAmount;
