@@ -2,10 +2,11 @@ import { ChannelType } from "discord.js";
 import { DisTube } from "distube";
 import { SpotifyPlugin } from "@distube/spotify";
 import client from "../../app.js";
+import { t } from "i18next";
 
 export const data = {
-  name: "play",
-  description: "Play a song.",
+  name: t("play.name"),
+  description: t("play.description"),
   async execute(interaction) {
     await interaction.deferReply();
     if (interaction.channel?.type == ChannelType.DM) return;
@@ -28,16 +29,30 @@ export const data = {
       interaction.options.data[0].value?.toString() || " "
     );
 
-    await interaction.followUp("Müzik çalınıyor");
+    await interaction.followUp(
+      t("play.message", { lng: interaction.locale, ns: "commands" })
+    );
   },
 };
 export const slash_data = {
   name: data.name,
   description: data.description,
+  name_localizations: {
+    tr: t("play.name", { lng: "tr" }),
+  },
+  description_localizations: {
+    tr: t("play.description", { lng: "tr" }),
+  },
   options: [
     {
-      name: "play",
-      description: "play",
+      name: t("play.url_option.name"),
+      description: t("play.url_option.description"),
+      name_localizations: {
+        tr: t("play.url_option.name", { lng: "tr" }),
+      },
+      description_localizations: {
+        tr: t("play.url_option.description", { lng: "tr" }),
+      },
       type: 3,
       required: true,
     },
