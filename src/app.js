@@ -2,7 +2,7 @@ import { ActivityType, Client, Collection } from "discord.js";
 import { readdirSync } from "fs";
 import i18next from "i18next";
 import tranlationBackend from "i18next-fs-backend";
-import mongoose, { Mongoose } from "mongoose";
+import mongoose from "mongoose";
 import DisTube from "distube";
 import SpotifyPlugin from "@distube/spotify";
 import "dotenv/config";
