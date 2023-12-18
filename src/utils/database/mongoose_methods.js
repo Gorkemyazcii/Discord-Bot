@@ -34,3 +34,7 @@ export const update = async (guild_id, update_value) => {
   //     return guild_db;
   //   }
 };
+
+export const deleteOne = async (guild_id) => {
+  await guilds_Schema.deleteOne({ guild_id });
+};
