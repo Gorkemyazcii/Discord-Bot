@@ -1,24 +1,40 @@
+import { Events } from "discord.js";
 import cooldown_control from "../utils/cooldown_control.js";
 import auto_complete from "../utils/event-utils/auto_complete.js";
-import { Events } from "discord.js";
+import { t } from "i18next";
+import { PermissionsBitField } from "discord.js";
 
 export default (client) => {
   const { embed } = client;
   client.on(Events.InteractionCreate, (interaction) => {
-    if (interaction.isAutocomplete()) auto_complete(interaction);
+    if (interaction.isAutocomplete()) {
+      return auto_complete(interaction);
+    }
 
     const command = client.commands.get(interaction.commandName);
     if (!command) return;
+    const memberPermissions = interaction.member.permissions.serialize();
+    const commandPermission = command.data.permission;
+    const hasTruePermission =
+      memberPermissions.hasOwnProperty(commandPermission) &&
+      memberPermissions[commandPermission] === true;
+    // const hasTruePermission = Object.keys(memberPermissions).some(
+    //   (key) => key === command.data.permission
+    // );
 
     // Permission Control
-    if (
-      command.data.permission &&
-      !interaction.member.permission.has(command.data.permission)
-    )
+    if (commandPermission && !hasTruePermission)
       return interaction.reply({
         embeds: [
           embed(
-            `Bu komutu kullanmak için \`${command.data.permission}\` Yetkisine sahip olman gerekiyor`,
+            t("missing_permissions", {
+              ns: "common",
+              lng: interaction.locale,
+              permission: t(commandPermission, {
+                ns: "permissions",
+                lng: interaction.locale,
+              }),
+            }),
             "Red"
           ),
         ],
@@ -29,7 +45,12 @@ export default (client) => {
       return interaction.reply({
         embeds: [
           embed(
-            `Bu komutu tekrar kullanmak için \`${cooldown}\` saniye beklemelisiniz`
+            t("cooldown_error", {
+              ns: "common",
+              lng: interaction.locale,
+              cooldown,
+            }),
+            "Red"
           ),
         ],
       });
@@ -39,7 +60,12 @@ export default (client) => {
       command.data.execute(interaction);
     } catch (e) {
       interaction.reply({
-        embeds: [embed("Bu komutu kullanırken bir hata oluştu", "Red")],
+        embeds: [
+          embed(
+            t("unexpected_error", { ns: "common", lng: interaction.locale }),
+            "Red"
+          ),
+        ],
       });
       console.log(e);
     }
