@@ -3,8 +3,7 @@ const cooldowns = new Collection();
 
 export default (command, user_id) => {
   if (user_id == process.env.USER_ID) return false;
-
-  //const memberPermissions = interaction.member.permissions.serialize();
+  // const memberPermissions = interaction.member.permissions.serialize();
   // console.log(memberPermissions);
   // const hasTruePermission =
   //   memberPermissions.hasOwnProperty("Administrator") &&
