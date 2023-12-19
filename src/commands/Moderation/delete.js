@@ -2,6 +2,7 @@ import { t } from "i18next";
 export const data = {
   name: t("delete.name"),
   description: t("delete.description"),
+  permission: "Administrator",
   execute(interaction) {
     const { channel, guild } = interaction;
     const { embed } = interaction.client;
