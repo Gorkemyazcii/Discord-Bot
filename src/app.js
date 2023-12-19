@@ -5,6 +5,7 @@ import tranlationBackend from "i18next-fs-backend";
 import mongoose from "mongoose";
 import DisTube from "distube";
 import SpotifyPlugin from "@distube/spotify";
+import * as database from "./utils/database/mongoose_methods.js";
 import "dotenv/config";
 
 const client = new Client({
@@ -29,11 +30,15 @@ client.emoji = (emojiName) =>
   client.guilds.cache
     .get(process.env.GUILD_ID)
     .emojis.cache.find((e) => e.name == emojiName) || "❤️";
-//  Assignments Embed ?
+//  Assignments Embed
 client.embed = await import("./utils/bot/embed.js").then((m) => m.default);
-// Initialize Database ?
+// Assigments Database
+client.database = database;
+// Initialize Database
 await mongoose
-  .connect("mongodb://localhost:27017/yazici?retrywrites=true&w=majority")
+  .connect(
+    "mongodb+srv://gorkem:467536Ggyzc@cluster0.yzf43jm.mongodb.net/yazici"
+  )
   .then(() => {
     console.log("Veritabanına başarıyla kaydedildi");
   });
