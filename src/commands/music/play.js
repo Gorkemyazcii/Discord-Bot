@@ -23,7 +23,6 @@ export const data = {
     const distube = new DisTube(interaction.client, {
       plugins: [new SpotifyPlugin()],
     });
-    console.log(interaction.options.data[0].value?.toString());
     await distube.play(
       voiceChannel,
       interaction.options.data[0].value?.toString() || " "
