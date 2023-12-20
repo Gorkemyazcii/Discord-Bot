@@ -1,22 +1,22 @@
-import { ActivityType, Client, Collection } from "discord.js";
+import {
+  ActivityType,
+  Client,
+  Collection,
+  GatewayIntentBits,
+  Partials,
+} from "discord.js";
 import { readdirSync } from "fs";
 import i18next from "i18next";
 import tranlationBackend from "i18next-fs-backend";
 import mongoose from "mongoose";
-import DisTube from "distube";
-import SpotifyPlugin from "@distube/spotify";
 import * as database from "./utils/database/mongoose_methods.js";
 import "dotenv/config";
+import { SpotifyPlugin } from "@distube/spotify";
+import { DisTube } from "distube";
 
 const client = new Client({
-  intents: [
-    "Guilds",
-    "GuildMessages",
-    "MessageContent",
-    "GuildBans",
-    "GuildMembers",
-    "GuildVoiceStates",
-  ],
+  intents: [Object.keys(GatewayIntentBits)],
+  partials: [Object.keys(Partials)],
   presence: {
     status: "idle",
 
@@ -32,6 +32,13 @@ client.emoji = (emojiName) =>
     .emojis.cache.find((e) => e.name == emojiName) || "❤️";
 //  Assignments Embed
 client.embed = await import("./utils/bot/embed.js").then((m) => m.default);
+// Distube
+client.distube = new DisTube(client, {
+  plugins: [new SpotifyPlugin()],
+  emitNewSongOnly: true,
+  leaveOnFinish: true,
+  emitAddSongWhenCreatingQueue: false,
+});
 // Assigments Database
 client.database = database;
 // Initialize Database
