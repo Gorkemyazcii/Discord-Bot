@@ -18,7 +18,10 @@ export const data = {
     if (!member) return;
     const voiceChannel = member.voice.channel;
 
-    if (!voiceChannel) return;
+    if (!voiceChannel)
+      return interaction.followUp({
+        content: "You must be in a voice channel to execute music commands.",
+      });
 
     const distube = new DisTube(interaction.client, {
       plugins: [new SpotifyPlugin()],
