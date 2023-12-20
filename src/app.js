@@ -37,7 +37,8 @@ client.database = database;
 // Initialize Database
 await mongoose
   .connect(
-    "mongodb+srv://gorkem:467536Ggyzc@cluster0.yzf43jm.mongodb.net/yazici"
+    "mongodb://localhost:27017/yazici"
+    /* "mongodb+srv://gorkem:467536Ggyzc@cluster0.yzf43jm.mongodb.net/yazici" */
   )
   .then(() => {
     console.log("Veritabanına başarıyla kaydedildi");
