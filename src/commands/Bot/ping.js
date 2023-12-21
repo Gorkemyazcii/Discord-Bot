@@ -4,9 +4,8 @@ import { t } from "i18next";
 export const data = {
   name: t("ping.name"),
   description: t("ping.description"),
-  execute(interaction) {
+  async execute(interaction) {
     const { emoji, ws } = interaction.client;
-
     const dicord_ping = ws.ping;
     const bot_ping = Date.now() - interaction.createdTimestamp;
 
