@@ -1,5 +1,6 @@
 {
   "cooldown_error": "To use this command again, you must wait `{{cooldown}}` seconds",
   "missing_permissions": "To use this command, you need to have `{{permission}}` Privilege",
-  "unexpected_error": "An unexpected error occurred!"
+  "unexpected_error": "An unexpected error occurred!",
+  "voiceChannel": "You must be in a voice channel to execute music commands."
 }
