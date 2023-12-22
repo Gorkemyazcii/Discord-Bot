@@ -1,5 +1,6 @@
 {
   "cooldown_error": "Bu komutu tekrar kullanmak için `{{cooldown}}` saniye beklemelisiniz",
   "missing_permissions": "Bu komutu kullanmak için `{{permission}}` Yetkisine sahip olman gerekiyor",
-  "unexpected_error": "Beklenmeyen bir hata oluştu!"
+  "unexpected_error": "Beklenmeyen bir hata oluştu!",
+  "voiceChannel": "Müzik komutlarını yürütmek için bir ses kanalında olmanız gerekir."
 }
