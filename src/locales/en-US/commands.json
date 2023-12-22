@@ -41,5 +41,17 @@
       "name": "command_name",
       "description": "helper_command"
     }
+  },
+  "queue": {
+    "name": "queue",
+    "description": "Sorts songs by playback order"
+  },
+  "forward": {
+    "name": "forward",
+    "description": "fast forwards by the entered seconds",
+    "forward_option": {
+      "name": "seconds",
+      "description": "the seconds you want to fast forward"
+    }
   }
 }
