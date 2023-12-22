@@ -41,5 +41,17 @@
       "name": "komut_ismi",
       "description": "yardımcı_komutu"
     }
+  },
+  "queue": {
+    "name": "sırala",
+    "description": "Şarkıları oynatma sırasına göre sıralar"
+  },
+  "forward": {
+    "name": "ileri_sar",
+    "description": "girilen saniye kadar ileri sarar",
+    "forward_option": {
+      "name": "saniye",
+      "description": "ileri sarmak istediğin saniye"
+    }
   }
 }
