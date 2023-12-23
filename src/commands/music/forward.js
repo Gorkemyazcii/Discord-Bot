@@ -28,14 +28,23 @@ export const data = {
       const queue = await client.distube.getQueue(voiceChannel);
 
       if (!queue) {
-        embed.setColor("Red").setDescription("There is no active queue.");
+        embed.setColor("Red").setDescription(
+          t("no_queue", {
+            ns: "common",
+            lng: interaction.locale,
+          })
+        );
         return interaction.reply({ embeds: [embed], ephemeral: true });
       }
 
       await queue.seek(queue.currentTime + seconds);
-      embed
-        .setColor("Blue")
-        .setDescription(`⏩ Forwarded the song for \`${seconds}s\`.`);
+      embed.setColor("Blue").setDescription(
+        t("forward.message", {
+          ns: "commands",
+          lng: interaction.locale,
+          seconds,
+        })
+      );
       return interaction.reply({ embeds: [embed], ephemeral: true });
     } catch (err) {
       console.log(err);
