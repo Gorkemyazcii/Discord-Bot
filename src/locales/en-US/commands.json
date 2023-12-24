@@ -52,6 +52,48 @@
     "forward_option": {
       "name": "seconds",
       "description": "the seconds you want to fast forward"
+    },
+    "message": "⏩ It skipped forward `{{seconds}}` seconds."
+  },
+  "rewind": {
+    "description": "used to rewind within the currently playing song",
+    "message": "⏪ `{{seconds}}` seconds rewound"
+  },
+  "jump": {
+    "name": "jump",
+    "description": "skips to the next song according to the selected number.",
+    "jump_option": {
+      "name": "index",
+      "description": "enter sequence number"
+    },
+    "message": "⏩ jumped into song"
+  },
+  "now_playing": {
+    "name": "now_playing",
+    "description": "provides information about the currently playing song"
+  },
+  "pause": {
+    "message": "⏸ The song has been paused.",
+    "description": "stops the music"
+  },
+  "resume": {
+    "message": "⏯ The song has been resumed.",
+    "description": "keep the music going"
+  },
+  "shuffle": {
+    "description": "Shuffles the list",
+    "message": " `🎶 Shuffled songs in the queue.`"
+  },
+  "skip": {
+    "description": "Skip to next song",
+    "message": "⏩ The song has been skipped."
+  },
+  "volume": {
+    "description": "adjusts music volume",
+    "message": "🔉 Volume has been set to {{volume}}%.",
+    "volume_option": {
+      "name": "volume",
+      "description": "to adjust the volume, enter numbers as %"
     }
   }
 }
