@@ -52,6 +52,52 @@
     "forward_option": {
       "name": "saniye",
       "description": "ileri sarmak istediğin saniye"
+    },
+    "message": "⏩ `{{seconds}}` saniye ileri sarıldı"
+  },
+  "rewind": {
+    "description": "çalınan şarkı içerisinde geri sarmaya yarar",
+    "message": "⏪ `{{seconds}}` saniye geri sarıldı",
+    "rewind_options": {
+      "name": "saniye",
+      "description": "ileri sarmak istediğin saniye"
+    }
+  },
+  "jump": {
+    "name": "atla",
+    "description": "seçilen numaraya göre sıradaki şarkıya atlar.",
+    "jump_option": {
+      "name": "numara",
+      "description": "sıra numarası giriniz"
+    },
+    "message": "⏩ şarkıya atlandı"
+  },
+  "now_playing": {
+    "name": "suan_calan",
+    "description": "şuan çalan şarkının bilgisini verir"
+  },
+  "pause": {
+    "message": "⏸ Şarkı duraklatıldı.",
+    "description": "müziği durdurur"
+  },
+  "resume": {
+    "message": "⏯ Şarkı devam ettirildi.",
+    "description": "müziği devam ettirir"
+  },
+  "shuffle": {
+    "description": "Listeyi karıştırır",
+    "message": "`🎶 Sıradaki şarkılar karıştırıldı.`"
+  },
+  "skip": {
+    "description": "Sonraki şarkıya geçer",
+    "message": "⏩ Şarkı atlandı."
+  },
+  "volume": {
+    "description": "Müzik sesini ayarlar",
+    "message": "🔉 Ses seviyesi %{{volume}} olarak ayarlandı",
+    "volume_option": {
+      "name": "ses",
+      "description": "ses seviyesini ayarlamak için sayı giriniz % olarak "
     }
   }
 }
