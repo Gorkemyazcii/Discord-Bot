@@ -1,6 +1,4 @@
 import { ChannelType } from "discord.js";
-import { DisTube } from "distube";
-import { SpotifyPlugin } from "@distube/spotify";
 import client from "../../app.js";
 import { t } from "i18next";
 
@@ -20,16 +18,17 @@ export const data = {
 
     if (!voiceChannel)
       return interaction.followUp({
-        content: "You must be in a voice channel to execute music commands.",
+        content: t("voiceChannel", {
+          ns: "common",
+          lng: interaction.locale,
+        }),
       });
-
-    const distube = new DisTube(interaction.client, {
-      plugins: [new SpotifyPlugin()],
-    });
-    await distube.play(
-      voiceChannel,
-      interaction.options.data[0].value?.toString() || " "
-    );
+    let musicLink = interaction.options.getString("url");
+    const searchString = "/intl-tr";
+    if (musicLink.includes(searchString)) {
+      musicLink = musicLink.replace(searchString, "");
+    }
+    await client.distube.play(voiceChannel, musicLink || " ");
 
     await interaction.followUp(
       t("play.message", { lng: interaction.locale, ns: "commands" })
@@ -39,9 +38,6 @@ export const data = {
 export const slash_data = {
   name: data.name,
   description: data.description,
-  name_localizations: {
-    tr: t("play.name", { lng: "tr" }),
-  },
   description_localizations: {
     tr: t("play.description", { lng: "tr" }),
   },
