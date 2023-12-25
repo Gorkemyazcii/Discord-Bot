@@ -18,7 +18,7 @@ export const data = {
     const voiceChannel = member.voice.channel;
 
     if (!voiceChannel)
-      return interaction.followUp({
+      return interaction.reply({
         content: t("voiceChannel", {
           ns: "common",
           lng: interaction.locale,
@@ -48,15 +48,17 @@ export const data = {
       return interaction.reply({ embeds: [embed], ephemeral: true });
     } catch (err) {
       console.log(err);
+      embed
+        .setColor("Red")
+        .setDescription(t("catch_err", { ns: "common", lng: location.locale }));
+
+      return interaction.reply({ embeds: [embed], ephemeral: true });
     }
   },
 };
 export const slash_data = {
   name: data.name,
   description: data.description,
-  name_localizations: {
-    tr: t("forward.name", { lng: "tr" }),
-  },
   description_localizations: {
     tr: t("forward.description", { lng: "tr" }),
   },
