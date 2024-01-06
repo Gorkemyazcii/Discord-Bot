@@ -18,11 +18,12 @@ const client = new Client({
   intents: [Object.keys(GatewayIntentBits)],
   partials: [Object.keys(Partials)],
   presence: {
-    status: "idle",
+    status: "online",
 
-    activities: [{ name: "Breaking Bad", type: ActivityType.Watching }],
+    activities: [{ name: " ", type: ActivityType.Custom }],
   },
 });
+
 // Command Loader
 client.commands = new Collection();
 // Assignments emoji
