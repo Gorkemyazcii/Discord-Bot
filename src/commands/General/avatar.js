@@ -1,5 +1,6 @@
 import { EmbedBuilder } from "discord.js";
 import { t } from "i18next";
+// import client from "../../app.js";
 
 export const data = {
   name: t("avatar.name"),
@@ -7,7 +8,10 @@ export const data = {
   execute(interaction) {
     const target =
       interaction.options._hoistedOptions?.[0]?.member || interaction.member;
-    const avatar = target.displayAvatarURL({ dynamic: true, size: 512 });
+    let avatar = target.displayAvatarURL({ dynamic: true, size: 512 });
+    // console.log(avatar);
+    // console.log(client.user.avatar);
+    // client.user.setAvatar = "(../../../7d568313f6ac2fbfb565ff62ed38f38f.webp)";
 
     const responseEmbed = new EmbedBuilder()
       .setTitle(`${target.displayName} Adlı Kullanıcının Avatarı`)
