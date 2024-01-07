@@ -40,7 +40,7 @@ GUILD_ID = 'Your Guild ID'
 
 To get your Discord Bot Token key, visit :  [here](https://discord.com/developers/applications). <br>
 
-Now your .env file should look like this:
+Now your .env file should look like this: <br>
 ![image](https://github.com/Gorkemyazcii/Discord-Bot/assets/123131846/965c1010-3c23-4b72-8fb1-7d90b756bb0e)
 
 
