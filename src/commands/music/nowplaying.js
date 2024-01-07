@@ -37,12 +37,15 @@ export const data = {
       }
 
       const song = queue.songs[0];
+      const image = song.thumbnail;
+      await client.user.setAvatar(image);
       embed
         .setColor("Blue")
         .setDescription(
           `🎶 **Currently playing:** \`${song.name}\` - \`${song.formattedDuration}\`.\n**Link:** ${song.url}`
         )
         .setThumbnail(song.thumbnail);
+
       return interaction.reply({ embeds: [embed], ephemeral: true });
     } catch (err) {
       console.log(err);
