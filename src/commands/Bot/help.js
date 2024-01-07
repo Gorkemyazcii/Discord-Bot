@@ -54,12 +54,3 @@ export const slash_data = {
     },
   ],
 };
-// export const slash_data = new SlashCommandBuilder()
-//   .setName(data.name)
-//   .setDescription(data.description)
-//   .addStringOption((option) =>
-//     option
-//       .setName("komut_adı")
-//       .setDescription("Lütfen Bilgi almak istediğiniz komutun adını giriniz")
-//       .setAutocomplete(true)
-//   );
