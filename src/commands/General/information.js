@@ -23,7 +23,3 @@ export const slash_data = {
   type: 2,
   dm_permission: false,
 };
-
-// export const slash_data = new ContextMenuCommandBuilder()
-//   .setName(data.name)
-//   .setType(2);
