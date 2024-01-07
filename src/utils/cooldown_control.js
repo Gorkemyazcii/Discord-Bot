@@ -16,7 +16,7 @@ export default (command, user_id) => {
 
   const now = Date.now();
   const timestamps = cooldowns.get(command.name);
-  const cooldownAmount = (command.data.cooldown || 5) * 1000;
+  const cooldownAmount = (command.data.cooldown || 2) * 1000;
 
   if (timestamps.has(user_id)) {
     const expiration = timestamps.get(user_id) + cooldownAmount;
