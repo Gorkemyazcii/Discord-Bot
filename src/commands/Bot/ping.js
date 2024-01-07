@@ -1,6 +1,5 @@
 import { EmbedBuilder } from "discord.js";
 import { t } from "i18next";
-
 export const data = {
   name: t("ping.name"),
   description: t("ping.description"),
@@ -42,7 +41,3 @@ export const slash_data = {
     tr: t("ping.description", { lng: "tr" }),
   },
 };
-
-// export const slash_data = new SlashCommandBuilder()
-//   .setName(data.name)
-//   .setDescription(data.description);
