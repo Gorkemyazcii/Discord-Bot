@@ -1,12 +1,10 @@
-import { Events } from "discord.js";
 import cooldown_control from "../utils/cooldown_control.js";
 import auto_complete from "../utils/event-utils/auto_complete.js";
 import { t } from "i18next";
-import { PermissionsBitField } from "discord.js";
 
 export default (client) => {
   const { embed } = client;
-  client.on(Events.InteractionCreate, (interaction) => {
+  client.on("interactionCreate", (interaction) => {
     if (interaction.isAutocomplete()) {
       return auto_complete(interaction);
     }
