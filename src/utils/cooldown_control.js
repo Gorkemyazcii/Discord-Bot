@@ -3,13 +3,7 @@ const cooldowns = new Collection();
 
 export default (command, user_id) => {
   if (user_id == process.env.USER_ID) return false;
-  // const memberPermissions = interaction.member.permissions.serialize();
-  // console.log(memberPermissions);
-  // const hasTruePermission =
-  //   memberPermissions.hasOwnProperty("Administrator") &&
-  //   memberPermissions["Administrator"] === true;
 
-  // if (hasTruePermission) return false;
   if (!cooldowns.has(command.name)) {
     cooldowns.set(command.name, new Collection());
   }
@@ -34,20 +28,3 @@ export default (command, user_id) => {
     return false;
   }
 };
-
-/*
-cooldowns{
-    "ping":{
-        "819664166616956951" : Date.now()
-
-    },
-    "ban":{
-
-    }
-}
-
-setTimeout(()=>{
-    delete timestamps.delete(user_id)
-},5000)
-
- */

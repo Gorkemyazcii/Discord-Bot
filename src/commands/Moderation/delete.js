@@ -34,7 +34,6 @@ export const slash_data = {
   description_localizations: {
     tr: t("delete.description", { lng: "tr" }),
   },
-  // default_member_permissions: 8,
   options: [
     {
       name: t("delete.number_option.name"),
@@ -52,6 +51,3 @@ export const slash_data = {
     },
   ],
 };
-// export const slash_data = new SlashCommandBuilder()
-//   .setName(data.name)
-//   .setDescription(data.description);

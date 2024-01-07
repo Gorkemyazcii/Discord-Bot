@@ -16,11 +16,6 @@ export default (client) => {
     const hasTruePermission =
       memberPermissions.hasOwnProperty(commandPermission) &&
       memberPermissions[commandPermission] === true;
-    // const hasTruePermission = Object.keys(memberPermissions).some(
-    //   (key) => key === command.data.permission
-    // );
-
-    // Permission Control
     if (commandPermission && !hasTruePermission)
       return interaction.reply({
         embeds: [
@@ -37,7 +32,6 @@ export default (client) => {
           ),
         ],
       });
-    // Cooldown Control
     const cooldown = cooldown_control(command, interaction.member.id);
     if (cooldown)
       return interaction.reply({
@@ -53,7 +47,6 @@ export default (client) => {
         ],
       });
 
-    // Execute command
     try {
       command.data.execute(interaction);
     } catch (e) {

@@ -56,13 +56,3 @@ export const slash_data = {
     },
   ],
 };
-
-// export default new SlashCommandBuilder()
-//     .setName("play")
-//     .setDescription("Play a song.")
-//     .addStringOption((option) =>
-//       option
-//         .setName("query")
-//         .setDescription("Provide the name or url for the song.")
-//         .setRequired(true)
-//     ),

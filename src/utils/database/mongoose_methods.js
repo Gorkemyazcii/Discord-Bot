@@ -20,19 +20,6 @@ export const update = async (guild_id, update_value) => {
   const returned = await guilds_Schema.updateOne({ guild_id }, update_value, {
     upsert: true,
   });
-
-  //   if (returned.matchedCount == 0) {
-  //     const data = Object.entries(Object.values(update_value)[0])[0];
-  //     console.log(data);
-
-  //     const guild_db = new guilds_Schema({
-  //       guild_id,
-  //       [data[0]]: data[1],
-  //     });
-
-  //     await guild_db.save();
-  //     return guild_db;
-  //   }
 };
 
 export const deleteOne = async (guild_id) => {
