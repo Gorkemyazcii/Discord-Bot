@@ -43,14 +43,9 @@ client.distube = new DisTube(client, {
 // Assigments Database
 client.database = database;
 // Initialize Database
-await mongoose
-  .connect(
-    "mongodb://localhost:27017/yazici"
-    /* "mongodb+srv://gorkem:467536Ggyzc@cluster0.yzf43jm.mongodb.net/yazici" */
-  )
-  .then(() => {
-    console.log("Veritabanına başarıyla kaydedildi");
-  });
+await mongoose.connect("mongodb://localhost:27017/yazici").then(() => {
+  console.log("Veritabanına başarıyla kaydedildi");
+});
 
 // ▬ guilds (collection)
 // → {guild_id: "12345" , moderation_log_channel_id: "456"} (document)
