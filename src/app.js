@@ -8,8 +8,6 @@ import {
 import { readdirSync } from "fs";
 import i18next from "i18next";
 import tranlationBackend from "i18next-fs-backend";
-import mongoose from "mongoose";
-import * as database from "./utils/database/mongoose_methods.js";
 import "dotenv/config";
 import { SpotifyPlugin } from "@distube/spotify";
 import { DisTube } from "distube";
@@ -40,15 +38,6 @@ client.distube = new DisTube(client, {
   leaveOnFinish: true,
   emitAddSongWhenCreatingQueue: false,
 });
-// Assigments Database
-client.database = database;
-// Initialize Database
-await mongoose.connect("mongodb://localhost:27017/yazici").then(() => {
-  console.log("Veritabanına başarıyla kaydedildi");
-});
-
-// ▬ guilds (collection)
-// → {guild_id: "12345" , moderation_log_channel_id: "456"} (document)
 
 // Initialize multi language system
 await i18next.use(tranlationBackend).init({
