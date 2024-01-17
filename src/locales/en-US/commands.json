@@ -95,5 +95,15 @@
       "name": "volume",
       "description": "to adjust the volume, enter numbers as %"
     }
+  },
+  "loop": {
+    "description": "Display loop options.",
+    "message": "🔁 Set repeat mode to {{mode}}",
+    "Repeat queue": "Repeat queue",
+    "Repeat song": "Repeat song",
+    "Off": "Off",
+    "loop_option": {
+      "description": "Loop options: off, song, queue"
+    }
   }
 }
