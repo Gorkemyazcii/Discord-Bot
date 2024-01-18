@@ -99,5 +99,15 @@
       "name": "ses",
       "description": "ses seviyesini ayarlamak için sayı giriniz % olarak "
     }
+  },
+  "loop": {
+    "description": "Döngü seçeneklerini görüntüleyin.",
+    "message": "🔁 Tekrarlama modunu şu şekilde ayarlayın:{{mode}}",
+    "Repeat queue": "Sırayı tekrarla",
+    "Repeat song": "Şarkıyı tekrarla",
+    "Off": "Kapalı",
+    "loop_option": {
+      "description": "Döngü seçenekleri: kapalı, şarkı, sıra"
+    }
   }
 }
