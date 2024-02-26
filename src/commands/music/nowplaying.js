@@ -37,8 +37,7 @@ export const data = {
       }
 
       const song = queue.songs[0];
-      const image = song.thumbnail;
-      await client.user.setAvatar(image);
+
       embed
         .setColor("Blue")
         .setDescription(
