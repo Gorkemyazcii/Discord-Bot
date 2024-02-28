@@ -1,11 +1,28 @@
-import client from "../../app.js";
-
 export const data = {
   name: "reminder",
   description: "Girilen mesajı belli bir süre sonra hatırlatır",
   async execute(interaction) {
-    const { embed, commands } = interaction.client;
-    
+    const { options, user } = interaction;
+    const text = options.getString("text");
+    const number = options.getInteger("number");
+    const milisaniyeCinsindenSure = number * 60 * 1000;
+
+    const userTag = `<@!${user.id}>`;
+    // Ensure the interaction is still valid
+    if (!interaction.deferred) {
+      await interaction.deferReply({ ephemeral: true });
+    }
+
+    setTimeout(() => {
+      interaction.editReply({
+        content: `${userTag} ${text} ${number}`,
+        ephemeral: true,
+      });
+    }, milisaniyeCinsindenSure);
+  },
+  catch(error) {
+    console.error(error);
+  },
 };
 
 export const slash_data = {
@@ -13,12 +30,14 @@ export const slash_data = {
   description: data.description,
   options: [
     {
-      name: "sayi",
-      description: "kaç dakika sonra hatırlama istersiniz",
-
+      type: 3,
+      name: "text",
+      description: "text",
+    },
+    {
       type: 4,
-      required: true,
-      min_value: 0,
+      name: "number",
+      description: "number",
     },
   ],
 };
