@@ -8,13 +8,14 @@ export const data = {
     const milisaniyeCinsindenSure = number * 60 * 1000;
 
     const userTag = `<@!${user.id}>`;
-    // Ensure the interaction is still valid
+
+    // Yanıtı ertele, ancak hala geçerliyse
     if (!interaction.deferred) {
       await interaction.deferReply({ ephemeral: true });
     }
 
-    setTimeout(() => {
-      interaction.editReply({
+    setTimeout(async () => {
+      await interaction.editReply({
         content: `${userTag} ${text} ${number}`,
         ephemeral: true,
       });
